@@ -158,7 +158,7 @@ include 'conn/db.php';
                 <div class="card">
                     <div>
                         <div class="numbers">0/0</div>
-                        <div class="cardName">Import</div>
+                        <div class="cardName">Import Chemistry</div>
                     </div>
 
                     <div class="iconBx">
@@ -169,7 +169,7 @@ include 'conn/db.php';
                 <div class="card">
                     <div>
                         <div class="numbers">0/0</div>
-                        <div class="cardName">Sell</div>
+                        <div class="cardName">Selling Waste</div>
                     </div>
 
                     <div class="iconBx">
