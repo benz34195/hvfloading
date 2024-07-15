@@ -55,7 +55,7 @@ include 'assets/navigation.php';
             </div>
             <div class="card">
                 <div>
-                    <div class="numbers" ></div>
+                    <div class="numbers" id='ImportChemistry'></div>
                     <div class="cardName">Import Chemistry</div>
                 </div>
                 <div class="iconBx">
@@ -90,9 +90,8 @@ include 'assets/navigation.php';
                             <td>Status</td>
                         </tr>
                     </thead>
-                    <tbody id="orderDetails"></tbody>
-                    <tbody id="orderDetails2"></tbody>
-                    <tbody id="orderDetails3"></tbody>
+                    <tbody id="orderDetails"></tbody>   
+
                         <!-- Data will be loaded here dynamically -->
                         
                         
@@ -106,8 +105,7 @@ include 'assets/navigation.php';
                     <h2>Logistic</h2>
                 </div>
                 <table id="logisticDetails"></table>
-                <table id="logisticDetails2"></table>
-                <table id="logisticDetails3"></table>
+
                 
                     <!-- Data will be loaded here dynamically -->
                 
@@ -129,6 +127,7 @@ include 'assets/navigation.php';
                 success: function(data) {
                     $('#exportInternational').text(data.deliveredINTER + '/' + data.inProcessINTER);
                     $('#exportDomestic').text(data.deliveredTH + '/' + data.inProcessTH);
+                    $('#ImportChemistry').text(data.deliveredCM + '/' + data.inProcessCM);
                     $('#SellingWaste').text(data.deliveredSW + '/' + data.inProcessSW);
                 },
                 error: function(xhr, status, error) {
@@ -149,30 +148,6 @@ include 'assets/navigation.php';
             });
 
             $.ajax({
-                url: 'conn/fetch_order_details_thai.php',
-                type: 'GET',
-                success: function(data) {
-                    console.log(data); // Added for debugging
-                    $('#orderDetails2').html(data);
-                },
-                error: function(xhr, status, error) {
-                    console.error('AJAX Error: ' + status + error);
-                }
-            });
-
-            $.ajax({
-                url: 'conn/fetch_order_details_selling.php',
-                type: 'GET',
-                success: function(data) {
-                    console.log(data); // Added for debugging
-                    $('#orderDetails3').html(data);
-                },
-                error: function(xhr, status, error) {
-                    console.error('AJAX Error: ' + status + error);
-                }
-            });
-
-            $.ajax({
                 url: 'conn/fetch_logistic_details.php',
                 type: 'GET',
                 success: function(data) {
@@ -183,28 +158,7 @@ include 'assets/navigation.php';
                 }
             });
 
-            $.ajax({
-                url: 'conn/fetch_logistic_details_thai.php',
-                type: 'GET',
-                success: function(data) {
-                    $('#logisticDetails2').html(data);
-                },
-                error: function(xhr, status, error) {
-                    console.error('AJAX Error: ' + status + error);
-                }
-            });
-
-            $.ajax({
-                url: 'conn/fetch_logistic_details_selling.php',
-                type: 'GET',
-                success: function(data) {
-                    $('#logisticDetails3').html(data);
-                },
-                error: function(xhr, status, error) {
-                    console.error('AJAX Error: ' + status + error);
-                }
-            });
-
+        
            
         }
 
